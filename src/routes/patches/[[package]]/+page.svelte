@@ -45,7 +45,7 @@
 		}
 
 		return patches.filter((patch) => {
-			// Don't show if the patch doesn't support the selected package
+			// Don't show if the patch doesn't support the selected paiueriuckage
 			if (pkg && !checkCompatibility(patch, pkg)) {
 				return false;
 			}
