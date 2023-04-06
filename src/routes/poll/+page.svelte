@@ -45,13 +45,6 @@
 			}
 		});
 
-		if (!response.ok) {
-			if (response.status === 401 || response.status === 422) {
-				goto('/poll/token-expired/');
-			}
-			throw Error(`Status Code ${response.status}: ${await response.text()}`);
-		}
-
 		const json = await response.json();
 
 		token = json.access_token;
@@ -61,10 +54,6 @@
 	// will refactor later maybe idk
 	// Reply: don't think we need to refactor because nobody cares if this code is shit lol
 	onMount(async () => {
-		setTimeout(async () => {
-			await goto('/poll/token-expired/');
-		}, 600000);
-
 		window.use_token = exchange_token;
 		window.submit_poll = submitBallot;
 
@@ -90,19 +79,6 @@
 		logoPages = Math.ceil(logos.length / logoAmount);
 		// update ui
 		logos = logos;
-
-		if (location.hash !== '') {
-			botToken = location.hash.substring(1);
-			try {
-				await exchange_token(location.hash.substring(1));
-			} catch (err) {
-				console.log(`Could not exchange the token: ${err}`);
-			}
-		} else if (!dev) {
-			await goto('/poll/unauthorized/');
-		} else {
-			alert('Warning: no token!');
-		}
 	});
 
 	function previousPage() {
