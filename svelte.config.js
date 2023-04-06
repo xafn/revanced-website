@@ -12,10 +12,7 @@ const config = {
 			fallback: null,
 			precompress: false,
 			strict: true
-		}),
-		env: {
-			publicPrefix: 'RV'
-		}
+		})
 	}
 };
 
