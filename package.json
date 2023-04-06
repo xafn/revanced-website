@@ -35,6 +35,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-auto": "^1.0.0-next.91",
 		"@tanstack/query-core": "^4.24.4",
 		"@tanstack/query-persist-client-core": "^4.24.4",
 		"@tanstack/query-sync-storage-persister": "^4.24.4",
