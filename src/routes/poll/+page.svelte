@@ -52,7 +52,7 @@
 
 	// you will never see shittier code tm
 	// will refactor later maybe idk
-	// Reply: don't think we need to refactor because nobody cares if this code is shit lol
+	// Reply: don't think we need to refactor because nobody cares if this code is shit lolhhh
 	onMount(async () => {
 		window.use_token = exchange_token;
 		window.submit_poll = submitBallot;
