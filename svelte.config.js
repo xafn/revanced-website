@@ -1,21 +1,22 @@
 import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [vitePreprocess()],
+	// Consult https://github.com/sveltejs/svelte-preprocess
+	// for more information about preprocessors
+	preprocess: preprocess(),
 
 	kit: {
+		// adapter-static has vercel detection, but that does not let you set a custom 404 page easily.
+		// Instead, we have to use a wrapper that generates a vercel config if on vercel...
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
 			fallback: null,
 			precompress: false,
 			strict: true
-		}),
-		env: {
-			publicPrefix: 'RV'
-		}
+		})
 	}
 };
 
