@@ -181,6 +181,8 @@
 		max-width: 125px;
 		transition: transform 0.4s var(--bezier-one);
 		user-select: none;
+		-webkit-transform: translate3d(0,0,1px); 
+    	-webkit-backface-visibility: hidden;
 	}
 
 	.buttons {
